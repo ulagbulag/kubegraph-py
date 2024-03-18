@@ -13,9 +13,9 @@ class KubeGraphClient:
         self,
         url: Optional[str] = None,
     ) -> None:
-        self._url = os.environ.get('KUBESPRAT_PATH', url)
+        self._url = os.environ.get('KUBEGRAPH_URL', url)
         if self._url is None:
-            raise ValueError('Environment Variable not set: "KUBESPRAT_PATH"')
+            raise ValueError('Environment Variable not set: "KUBEGRAPH_URL"')
         
         self._session = aiohttp.ClientSession()
 
