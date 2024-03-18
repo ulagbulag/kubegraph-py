@@ -37,12 +37,12 @@ classifiers = [
 [project.scripts]
 
 [project.urls]
-"Bug Tracker" = "https://github.com/ulagbulag/openark-py/issues"
-Changelog = "https://github.com/ulagbulag/openark-py/blob/master/CHANGELOG.md"
-Documentation = "https://github.com/ulagbulag/openark-py"
-Homepage = "https://github.com/ulagbulag/openark-py"
-Repository = "https://github.com/ulagbulag/openark-py.git"
+"Bug Tracker" = "https://github.com/ulagbulag/kubegraph-py/issues"
+Changelog = "https://github.com/ulagbulag/kubegraph-py/blob/master/CHANGELOG.md"
+Documentation = "https://github.com/ulagbulag/kubegraph-py"
+Homepage = "https://github.com/ulagbulag/kubegraph-py"
+Repository = "https://github.com/ulagbulag/kubegraph-py.git"
 
 [tool.hatch.build]
-include = ["/LICENSE", "/openark/", "/pyproject.toml", "/README.md"]
+include = ["/LICENSE", "/kubegraph/", "/pyproject.toml", "/README.md"]
 exclude = ["**/__pycache__"]
