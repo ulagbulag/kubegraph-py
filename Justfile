@@ -6,6 +6,9 @@ clean:
     # Clean up all iPython outputs
     find . -name '*.ipynb' -exec jupyter nbconvert --clear-output --inplace {} \;
 
+lint:
+    pylint $(git ls-files '*.py')
+
 release:
     python -m build . --sdist
-    twine upload "dist/openark-$(cat pyproject.toml | grep -Po '^version *\= *\"\K[0-9.]+').tar.gz"
+    twine upload "dist/kubegraph-$(cat pyproject.toml | grep -Po '^version *\= *\"\K[0-9.]+').tar.gz"
