@@ -2,6 +2,8 @@ import aiohttp
 import os
 from typing import Any, List, Optional
 
+import polars as pl
+
 
 __all__ = [
     'KubeGraphClient',
@@ -31,3 +33,26 @@ class KubeGraphClient:
             raise Exception(body.get('spec', 'Failed to execute getting entries'))
         
         return body['spec']
+
+    async def to_polars(self) -> pl.DataFrame:
+        return to_polars(await self.get_entries())
+
+
+def to_polars(entries: List[Any]) -> pl.DataFrame:
+    return pl.DataFrame(entries)
+
+
+def to_polars_edges(df: pl.DataFrame) -> pl.DataFrame:
+    return df.filter(df['type'] == 'edge')[[
+        'link_kind', 'link_name', 'link_namespace',
+        'src_kind', 'src_name', 'src_namespace',
+        'sink_kind', 'sink_name', 'sink_namespace',
+        'le', 'value',
+    ]]
+
+
+def to_polars_nodes(df: pl.DataFrame) -> pl.DataFrame:
+    return df.filter(df['type'] == 'node')[[
+        'kind', 'name', 'namespace',
+        'le', 'value',
+    ]]

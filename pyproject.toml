@@ -5,7 +5,7 @@ requires = ["hatchling"]
 [project]
 name = "kubegraph"
 version = "0.0.1"
-dependencies = ["aiohttp"]
+dependencies = ["aiohttp", "polars"]
 requires-python = ">=3.10"
 authors = [{ name = "Ho Kim", email = "ho.kim@ulagbulag.io" }]
 maintainers = [{ name = "Ho Kim", email = "ho.kim@ulagbulag.io" }]

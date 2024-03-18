@@ -1,5 +1,5 @@
 import asyncio
-from pprint import pprint as print
+from pprint import pprint
 
 from kubegraph import KubeGraphClient
 
@@ -7,7 +7,7 @@ from kubegraph import KubeGraphClient
 
 async def main():
     client = KubeGraphClient()
-    print(await client.get_entries())
+    pprint(await client.get_entries())
 
 
 if __name__ == '__main__':
